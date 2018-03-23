@@ -18,7 +18,7 @@ RUN mkdir -p /opt/node_space-api/
 # Define working directory
 WORKDIR /opt/node_space-api/
 
-ADD Hello-world-nodejs /opt/node_space-api/Hello-world-nodejs
+ADD ${{CODEBUILD_SRC_DIR}} /opt/node_space-api/Hello-world-nodejs
 
 # Expose port
 EXPOSE 80
