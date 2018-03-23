@@ -1,7 +1,7 @@
 # Set the base image to Ubuntu
 FROM ubuntu:14.04
 
-MAINTAINER Jogendra Kumar <jogendra.kumar@contentstack.com>
+MAINTAINER Jogendra Kumar <jogendra.jangid@gmail.com>
 
 # Install Node.js and other dependencies
 RUN apt-get update && apt-get -y install curl wget vim
