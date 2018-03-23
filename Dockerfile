@@ -3,6 +3,12 @@ FROM ubuntu:14.04
 
 MAINTAINER Jogendra Kumar <jogendra.jangid@gmail.com>
 
+RUN mkdir -p /opt/node_space-api/
+# Define working directory
+WORKDIR /opt/node_space-api/
+
+ADD ${{CODEBUILD_SRC_DIR}} /opt/node_space-api/Hello-world-nodejs
+
 # Install Node.js and other dependencies
 RUN apt-get update && apt-get -y install curl wget vim
 
@@ -13,12 +19,6 @@ ENV PATH $PATH:/opt/nodejs/bin
 
 # Install PM2
 RUN npm install pm2@2.4.2 -global
-
-RUN mkdir -p /opt/node_space-api/
-# Define working directory
-WORKDIR /opt/node_space-api/
-
-ADD ${{CODEBUILD_SRC_DIR}} /opt/node_space-api/Hello-world-nodejs
 
 # Expose port
 EXPOSE 80
